@@ -29,7 +29,11 @@ try {
     } 
     
     $decryptedEndpoint = ConvertFrom-SecureString $functionEndpoint -AsPlainText
-    $modelId = New-Guid
+
+    # $modelId = New-Guid
+    $stringDate = Get-Date -Format "dddd dd-MM-yy"
+    $modelId = "cv-$stringDate-v0.$($($(New-Guid) -split "-", 3)[1])"
+    
     $description = "Job Model for $modelId"
 
     $body= @{
