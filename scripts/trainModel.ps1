@@ -18,6 +18,9 @@
 # DEMO POC - "AS IS"
 #
 
+# $functionEndpoint = "https://func-form-746yernjqlvbi.azurewebsites.net/api/TrainModel?code=DwP648zGBxl-bq4IM_tyDv2X2am0fMCQMsQ3NTh_PwkTAzFuMBJfYw%3D%3D" # AlanPs1 - function key
+# $functionEndpoint = "https://func-form-746yernjqlvbi.azurewebsites.net/api/TrainModel?code=PI4IoewqfGm0WGazhbE5Dfh74vtwzwfYtxARhUn7mtaZAzFuB4dpwQ%3D%3D" # AlanPs1 - master key
+
 param(    
     [Parameter(Mandatory = $true)]
     [Security.SecureString]$functionEndpoint
@@ -29,6 +32,7 @@ try {
     } 
     
     $decryptedEndpoint = ConvertFrom-SecureString $functionEndpoint -AsPlainText
+    # $decryptedEndpoint = $functionEndpoint # aw testing - it works locally as no need to decrypt a secret
 
     # $modelId = New-Guid
     $stringDate = Get-Date -Format "dd-MM-yy"
@@ -36,7 +40,7 @@ try {
 
     $description = "Job Model for $modelId"
 
-    $body= @{
+    $body = @{
         "modelId"="$modelId"
         "description"="$description"        
     } | ConvertTo-Json
