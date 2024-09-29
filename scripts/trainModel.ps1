@@ -47,7 +47,7 @@ try {
     # $modelId = Get-Date -Format "dd-MM-yy-HH-mm-ss"
 
     # 3rd 
-    $modelId = "github-action-$runnumber"
+    $modelId = "dev-train-action-$runnumber"
 
     $description = "Train Model #$($runnumber): Manually run in AlanPs1 GUI"
 
