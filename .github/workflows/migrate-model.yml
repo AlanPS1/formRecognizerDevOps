@@ -21,7 +21,7 @@ jobs:
       - name: Run Azure PowerShell script validate
         run: |
           $secureString = ConvertTo-SecureString ${{ secrets.FUNCTION_VALIDATE_ENDPOINT }} -asplaintext -force
-          ./scripts/validateModel.ps1 -modelId ${{ github.event.inputs.modelId }} -endpoint $secureString
+          ./scripts/validateModel.ps1 -modelId ${{ github.event.inputs.modelId }} -functionEndpoint $secureString
         shell: pwsh
 
   deploymentQA:

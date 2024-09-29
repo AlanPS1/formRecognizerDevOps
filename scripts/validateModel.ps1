@@ -21,12 +21,12 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$modelId,
     [Parameter(Mandatory = $true)]
-    [Security.SecureString]$endpoint
+    [Security.SecureString]$functionEndpoint
 )
 
 try {
     
-    $decryptedEndpoint = ConvertFrom-SecureString $endpoint -AsPlainText
+    $decryptedEndpoint = ConvertFrom-SecureString $functionEndpoint -AsPlainText
     $values = $decryptedEndpoint.Split("?")
     $decryptedEndpoint = $values[0]
     $code = $values[1].Replace("code=","")
