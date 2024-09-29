@@ -16,7 +16,7 @@ jobs:
       - name: Run Azure PowerShell script validate
         run: |
           $secureString = ConvertTo-SecureString ${{ secrets.FUNCTION_TRAIN_MODEL_ENDPOINT }} -asplaintext -force
-          ./scripts/trainModel.ps1 -functionEndpoint $secureString
+          ./scripts/trainModel.ps1 -functionEndpoint $secureString -runnumber ${{ github.run_number }}
           Write-Output ${{ env }}
           Write-Output ${{ github.run_number }}
         shell: pwsh

@@ -23,7 +23,9 @@
 
 param(    
     [Parameter(Mandatory = $true)]
-    [Security.SecureString]$functionEndpoint
+    [Security.SecureString]$functionEndpoint,
+    [Parameter(Mandatory = $true)]
+    [int]$runnumber
 )
 
 try {        
@@ -38,13 +40,16 @@ try {
     # $modelId = New-Guid
 
     # first mess abbout
-    $stringDate = Get-Date -Format "dd-MM-yy"
-    $modelId = "cv-$stringDate-v0.$($($(New-Guid) -split "-", 3)[1])"
+    # $stringDate = Get-Date -Format "dd-MM-yy"
+    # $modelId = "cv-$stringDate-v0.$($($(New-Guid) -split "-", 3)[1])"
 
     # 2nd - plain date and time string to show new version of sorts
-    $modelId = Get-Date -Format "dd-MM-yy-HH-mm-ss"
+    # $modelId = Get-Date -Format "dd-MM-yy-HH-mm-ss"
 
-    $description = "Job Model for $modelId"
+    # 3rd 
+    $modelId = Get-Date -Format "github-action-$runnumber"
+
+    $description = "Train Model #$($runnumber): Manually run in AlanPs1 GUI"
 
     $body = @{
         "modelId"="$modelId"
