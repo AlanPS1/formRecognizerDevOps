@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Azure PowerShell script validate
         run: |
-          $secureString = ConvertTo-SecureString "https://func-form-746yernjqlvbi.azurewebsites.net/api/ValidateModelExists?code=8wEktPkYz-gAlxBNBxlCU8fS4GaaM-U4DATA3KQv2XHnAzFu1mzYjw%3D%3D" -asplaintext -force
+          $secureString = ConvertTo-SecureString ${{ secrets.FUNCTION_VALIDATE_ENDPOINT }} -asplaintext -force
           ./scripts/validateModel.ps1 -modelId ${{ github.event.inputs.modelId }} -functionEndpoint $secureString
         shell: pwsh
 
