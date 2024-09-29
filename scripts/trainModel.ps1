@@ -49,7 +49,7 @@ try {
     # 3rd 
     $modelId = "dev-train-action-$runnumber"
 
-    $description = "Train Model #$($runnumber): Manually run in AlanPs1 GUI"
+    $description = "Train Model #$($runnumber): Triggered from Train Model Github Action"
 
     $body = @{
         "modelId"="$modelId"
