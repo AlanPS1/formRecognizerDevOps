@@ -53,7 +53,6 @@ jobs:
       - name: Run Azure PowerShell script validate
         shell: pwsh 
         run: |
-          Write-Output "Endpoint : " + ${{ secrets.FUNCTION_COPY_MODEL_ENDPOINT}}
           $secureString = ConvertTo-SecureString ${{ secrets.FUNCTION_COPY_MODEL_ENDPOINT}} -asplaintext -force
           ./scripts/copyModel.ps1 -modelId ${{ github.event.inputs.modelId }} -sourceEnvironment 1 -destinationEnvironment 2 -functionEndpoint $secureString
                
