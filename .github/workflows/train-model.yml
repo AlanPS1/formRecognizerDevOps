@@ -18,4 +18,5 @@ jobs:
           $secureString = ConvertTo-SecureString ${{ secrets.FUNCTION_TRAIN_MODEL_ENDPOINT }} -asplaintext -force
           ./scripts/trainModel.ps1 -functionEndpoint $secureString
           Write-Output ${{ env }}
+          Write-Output ${{ github.run_number }}
         shell: pwsh
