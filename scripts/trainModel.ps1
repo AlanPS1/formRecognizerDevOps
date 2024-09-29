@@ -34,9 +34,15 @@ try {
     $decryptedEndpoint = ConvertFrom-SecureString $functionEndpoint -AsPlainText
     # $decryptedEndpoint = $functionEndpoint # aw testing - it works locally as no need to decrypt a secret
 
+    # original
     # $modelId = New-Guid
+
+    # first mess abbout
     $stringDate = Get-Date -Format "dd-MM-yy"
     $modelId = "cv-$stringDate-v0.$($($(New-Guid) -split "-", 3)[1])"
+
+    # 2nd - plain date and time string to show new version of sorts
+    $modelId = Get-Date -Format "dd-MM-yy-HH-mm-ss"
 
     $description = "Job Model for $modelId"
 
