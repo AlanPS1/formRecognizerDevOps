@@ -66,6 +66,6 @@ try {
     return $modelId
 }
 catch {
-    throw Write-Host "An Error Occured: $($_.Exception.Message)"; Write-Host "An Error Occured 2: $($_.Exception)"
+    Write-Host "An Error Occured: $($_.Exception.Message)"; Write-Host "An Error Occured 2: $($_.Exception)"
 }
 
