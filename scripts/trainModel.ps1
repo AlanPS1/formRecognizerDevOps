@@ -28,10 +28,11 @@ param(
     [int]$runnumber
 )
 
-try {        
-    $header = @{      
-      "Content-Type"="application/json"
-    } 
+$header = @{      
+    "Content-Type"="application/json"
+  } 
+
+try {
     
     $decryptedEndpoint = ConvertFrom-SecureString $functionEndpoint -AsPlainText
     # $decryptedEndpoint = $functionEndpoint # aw testing - it works locally as no need to decrypt a secret
@@ -65,6 +66,6 @@ try {
     return $modelId
 }
 catch {
-    throw "Something bad happen"
+    throw Write-Host "An Error Occured: $($_.Exception.Message)"; Write-Host "An Error Occured 2: $($_.Exception)"
 }
 
