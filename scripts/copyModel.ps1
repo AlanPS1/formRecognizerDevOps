@@ -49,6 +49,6 @@ try {
     }
 }
 catch {
-    throw "Something happen"
+    Write-Host "An Error Occured: $($_.Exception.Message)"; Write-Host "An Error Occured 2: $($_.Exception)"
 }
 
