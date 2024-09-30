@@ -37,7 +37,7 @@ try {
     # $decryptedEndpoint = $functionEndpoint # aw testing - it works locally as no need to decrypt a secret
 
     # original
-    $modelId = New-Guid
+    # $modelId = New-Guid
 
     # first mess abbout
     # $stringDate = Get-Date -Format "dd-MM-yy"
@@ -47,7 +47,7 @@ try {
     # $modelId = Get-Date -Format "dd-MM-yy-HH-mm-ss"
 
     # 3rd 
-    # $modelId = "dev-train-action-$runnumber"
+    $modelId = "dev-train-action-$runnumber"
 
     $description = "Train Model #$($runnumber): Triggered from Github Action"
 
